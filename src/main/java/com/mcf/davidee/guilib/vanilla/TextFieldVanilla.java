@@ -1,8 +1,7 @@
 package com.mcf.davidee.guilib.vanilla;
 
-import net.minecraft.util.ChatAllowedCharacters;
-
 import com.mcf.davidee.guilib.core.TextField;
+import net.minecraft.util.ChatAllowedCharacters;
 
 /**
  * 

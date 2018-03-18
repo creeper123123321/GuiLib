@@ -126,7 +126,7 @@ public abstract class Widget extends Gui {
 	
 	/**
 	 * Called to see if this widget should render.
-	 * 
+	 *
 	 * @param topY Top-Y of the screen
 	 * @param bottomY Bottom-Y of the screen
 	 * @return Whether or not this widget should be rendered

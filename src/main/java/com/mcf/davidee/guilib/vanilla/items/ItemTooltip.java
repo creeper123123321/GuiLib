@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mcf.davidee.guilib.core.Widget;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEndPortal;
 import net.minecraft.block.BlockPistonExtension;
@@ -17,8 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
 import org.lwjgl.opengl.GL11;
-
-import com.mcf.davidee.guilib.core.Widget;
 
 /**
  * 
@@ -38,7 +37,7 @@ public class ItemTooltip extends Widget {
 	private static String getUnknownName(ItemStack stack) {
 		Item item = stack.getItem();
 		if (item instanceof ItemBlock) {
-			Class<? extends Block> blockClass = ((ItemBlock)item).block.getClass();
+			Class<? extends Block> blockClass = ((ItemBlock)item).getBlock().getClass();
 			return NAME_MAP.containsKey(blockClass) ? NAME_MAP.get(blockClass) : "Unknown";
 		}
 		return "Unknown";
@@ -56,7 +55,7 @@ public class ItemTooltip extends Widget {
 		super(0, 0);
 
 		if (stack.getItem() != null) {
-			tooltips = (List<String>) stack.getTooltip(mc.player, mc.gameSettings.advancedItemTooltips);
+			tooltips = (List<String>) stack.getTooltip(mc.player, () -> mc.gameSettings.advancedItemTooltips);
 			if (!tooltips.isEmpty()) {
 				String name = tooltips.get(0);
 				if (name.startsWith("tile.null.name")) 
@@ -66,11 +65,11 @@ public class ItemTooltip extends Widget {
 					tooltips.set(i, TextFormatting.GRAY.toString() + tooltips.get(i));
 			}
 			FontRenderer itemRenderer = stack.getItem().getFontRenderer(stack);
-			font = (itemRenderer == null) ? mc.fontRendererObj : itemRenderer;
+			font = (itemRenderer == null) ? mc.fontRenderer : itemRenderer;
 		}
 		else {
 			tooltips = Arrays.asList("Air");
-			font = mc.fontRendererObj;
+			font = mc.fontRenderer;
 		}
 		this.parent = parent;
 		this.width = getMaxStringWidth();

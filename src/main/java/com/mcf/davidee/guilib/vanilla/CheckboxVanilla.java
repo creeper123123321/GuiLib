@@ -1,5 +1,6 @@
 package com.mcf.davidee.guilib.vanilla;
 
+import com.mcf.davidee.guilib.core.Checkbox;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
@@ -7,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.mcf.davidee.guilib.core.Checkbox;
 
 /**
  * 
@@ -21,7 +21,7 @@ public class CheckboxVanilla extends Checkbox {
 	public static final int SIZE = 10;
 
 	public CheckboxVanilla(String text) {
-		super(SIZE + 2 + Minecraft.getMinecraft().fontRendererObj.getStringWidth(text), SIZE, text);
+		super(SIZE + 2 + Minecraft.getMinecraft().fontRenderer.getStringWidth(text), SIZE, text);
 	}
 
 	public CheckboxVanilla(String text, boolean checked) {
@@ -41,7 +41,7 @@ public class CheckboxVanilla extends Checkbox {
 		mc.renderEngine.bindTexture(TEXTURE);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		drawTexturedModalRect(x, y, 0, check ? SIZE : 0, SIZE, SIZE);
-		mc.fontRendererObj.drawStringWithShadow(str, x + SIZE + 1, y + 1, (inBounds(mx, my)) ? 16777120 : 0xffffff);
+		mc.fontRenderer.drawStringWithShadow(str, x + SIZE + 1, y + 1, (inBounds(mx, my)) ? 16777120 : 0xffffff);
 	}
 
 }

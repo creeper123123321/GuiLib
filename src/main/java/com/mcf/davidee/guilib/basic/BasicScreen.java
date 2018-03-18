@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mcf.davidee.guilib.core.Button;
+import com.mcf.davidee.guilib.core.Container;
+import com.mcf.davidee.guilib.core.Widget;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -11,11 +14,6 @@ import net.minecraft.util.math.MathHelper;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-
-import com.mcf.davidee.guilib.core.Button;
-import com.mcf.davidee.guilib.core.Button.ButtonHandler;
-import com.mcf.davidee.guilib.core.Container;
-import com.mcf.davidee.guilib.core.Widget;
 
 /**
  * 
@@ -177,7 +175,7 @@ public abstract class BasicScreen extends GuiScreen {
 		Keyboard.enableRepeatEvents(false);
 	}
 
-	public class CloseHandler implements ButtonHandler{
+	public class CloseHandler implements Button.ButtonHandler{
 		public void buttonClicked(Button button) {
 			close();
 		}

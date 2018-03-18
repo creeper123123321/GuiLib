@@ -1,5 +1,6 @@
 package com.mcf.davidee.guilib.vanilla;
 
+import com.mcf.davidee.guilib.core.Slider;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.math.MathHelper;
@@ -7,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.mcf.davidee.guilib.core.Slider;
 
 /**
  * 
@@ -18,7 +18,7 @@ public class SliderVanilla extends Slider {
 	
 	private static final ResourceLocation TEXTURE = new ResourceLocation("textures/gui/widgets.png");
 
-	public SliderVanilla(int width, int height, float value, SliderFormat format) {
+	public SliderVanilla(int width, int height, float value, Slider.SliderFormat format) {
 		super(width, height, value, format);
 
 	}
@@ -46,7 +46,7 @@ public class SliderVanilla extends Slider {
 		drawTexturedModalRect(x + width / 2, y, 200 - width / 2, 46, width / 2, height);
 		drawTexturedModalRect(x + (int)(value * (float)(width - 8)), y, 0, 66, 4, 20);
 		drawTexturedModalRect(x + (int)(value * (float)(width - 8)) + 4, y, 196, 66, 4, 20);
-		drawCenteredString(mc.fontRendererObj, format.format(this), x + width / 2, y + (height - 8) / 2,
+		drawCenteredString(mc.fontRenderer, format.format(this), x + width / 2, y + (height - 8) / 2,
 				(inBounds(mx,my)) ? 16777120 : 0xffffff);
 	}
 

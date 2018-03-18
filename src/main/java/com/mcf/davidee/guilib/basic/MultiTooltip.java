@@ -2,9 +2,8 @@ package com.mcf.davidee.guilib.basic;
 
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
-
 import com.mcf.davidee.guilib.core.Widget;
+import net.minecraft.client.Minecraft;
 
 public class MultiTooltip extends Widget {
 
@@ -35,7 +34,7 @@ public class MultiTooltip extends Widget {
 
 		int textY = y + 2;
 		for (String line : text) {
-			mc.fontRendererObj.drawStringWithShadow(line, x + 2, textY, txtColor);
+			mc.fontRenderer.drawStringWithShadow(line, x + 2, textY, txtColor);
 			textY += 11;
 		}
 	}
@@ -57,7 +56,7 @@ public class MultiTooltip extends Widget {
 		Minecraft mc = Minecraft.getMinecraft();
 		int max = 0;
 		for (String s : strings) {
-			int width = mc.fontRendererObj.getStringWidth(s);
+			int width = mc.fontRenderer.getStringWidth(s);
 			if (width > max)
 				max = width;
 		}

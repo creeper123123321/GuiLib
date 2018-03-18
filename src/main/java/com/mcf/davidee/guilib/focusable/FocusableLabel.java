@@ -3,17 +3,17 @@ package com.mcf.davidee.guilib.focusable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mcf.davidee.guilib.core.Scrollbar;
+import com.mcf.davidee.guilib.core.Widget;
 import net.minecraft.client.Minecraft;
 
-import com.mcf.davidee.guilib.core.Widget;
-import com.mcf.davidee.guilib.core.Scrollbar.Shiftable;
 
 /**
  * 
  * A simple focusable label.
  *
  */
-public class FocusableLabel extends FocusableWidget implements Shiftable {
+public class FocusableLabel extends FocusableWidget implements Scrollbar.Shiftable {
 
 	private String str;
 	private int color, hoverColor, focusColor;
@@ -101,7 +101,7 @@ public class FocusableLabel extends FocusableWidget implements Shiftable {
 		hover = newHover;
 		if (focused)
 			drawRect(x, y, x+width, y+height, 0x99999999);
-		mc.fontRendererObj.drawStringWithShadow(str, x, y + 2, (focused) ? focusColor : (hover) ? hoverColor : color);
+		mc.fontRenderer.drawStringWithShadow(str, x, y + 2, (focused) ? focusColor : (hover) ? hoverColor : color);
 	}
 	
 	@Override
@@ -115,7 +115,7 @@ public class FocusableLabel extends FocusableWidget implements Shiftable {
 	}
 	
 	private static int getStringWidth(String text) {
-		return Minecraft.getMinecraft().fontRendererObj.getStringWidth(text);
+		return Minecraft.getMinecraft().fontRenderer.getStringWidth(text);
 	}
 	
 	@Override

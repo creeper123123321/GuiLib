@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.mcf.davidee.guilib.focusable.FocusableWidget;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
-
-import com.mcf.davidee.guilib.core.Scrollbar.Shiftable;
-import com.mcf.davidee.guilib.focusable.FocusableWidget;
 
 public class Container {
 
@@ -90,7 +88,7 @@ public class Container {
 		int minY = Integer.MAX_VALUE, maxY = Integer.MIN_VALUE;
 
 		for (Widget w : widgets) {
-			if (w instanceof Shiftable) {
+			if (w instanceof Scrollbar.Shiftable) {
 				if (w.y < minY)
 					minY = w.y;
 				if (w.y + w.height > maxY)
@@ -199,10 +197,10 @@ public class Container {
 			int index = widgets.indexOf(w), offset = Integer.MAX_VALUE;
 			for (int i = index + 1; i < widgets.size(); ++i) {
 				Widget cur = widgets.get(i);
-				if (cur instanceof Shiftable) {
+				if (cur instanceof Scrollbar.Shiftable) {
 					if (offset == Integer.MAX_VALUE)
 						offset = w.getY() - cur.getY();
-					((Shiftable) cur).shiftY(offset);
+					((Scrollbar.Shiftable) cur).shiftY(offset);
 				}
 			}
 			widgets.remove(w);

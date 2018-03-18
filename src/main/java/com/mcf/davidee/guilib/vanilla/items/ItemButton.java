@@ -3,6 +3,9 @@ package com.mcf.davidee.guilib.vanilla.items;
 import java.util.Arrays;
 import java.util.List;
 
+import com.mcf.davidee.guilib.core.Button;
+import com.mcf.davidee.guilib.core.Scrollbar;
+import com.mcf.davidee.guilib.core.Widget;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -13,9 +16,6 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.mcf.davidee.guilib.core.Button;
-import com.mcf.davidee.guilib.core.Scrollbar.Shiftable;
-import com.mcf.davidee.guilib.core.Widget;
 
 /**
  * 
@@ -27,7 +27,7 @@ import com.mcf.davidee.guilib.core.Widget;
  *
  */
 
-public class ItemButton extends Button implements Shiftable {
+public class ItemButton extends Button implements Scrollbar.Shiftable {
 
 	public static final int WIDTH = 18;
 	public static final int HEIGHT = 18;
@@ -79,7 +79,7 @@ public class ItemButton extends Button implements Shiftable {
 			RenderHelper.disableStandardItemLighting();
 		}
 		else //Air
-			drawString(mc.fontRendererObj, "Air" , x + 3, y + 5, -1);
+			drawString(mc.fontRenderer, "Air" , x + 3, y + 5, -1);
 	}
 
 
